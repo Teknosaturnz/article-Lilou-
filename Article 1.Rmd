@@ -1,7 +1,28 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output: github_document
 ---
 
 article
+ch  ngement du pattern
+sed -i 's|ftp://|https://|g; s|wget -nc|wget -c --tries=10 --retry-connrefused --waitretry=5|g' download.sh
+
+pour extraire les données
+source ../ena-file-download-read_run-PRJEB40676-fastq_ftp-20261009-0817.sh 
+
+../ = niveau au dessus
+
+pour classer les données entre reverse et forwar
+attention être dans l'evt global
+mv data_2/*_1.fastq.gz sample
+data_2 
+mv data_2/*_2.fastq.gz sample
+
+installer les métadonnées
+
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("dada2", version = "3.23")
+```
 
